@@ -1,21 +1,15 @@
 import { Router } from 'express';
+import { createUser, listUsers, getUser } from '../controllers/users'
+import { authenticate } from '../middlewares/authentication';
+import { authorize } from '../middlewares/authorization';
+import PERMISSIONS from '../constants';
 
 const router = Router();
 
-router.get('/', (req, res) => {
+router.post('/', authorize([PERMISSIONS.USERS.EDIT]), createUser)
 
-  // assume we read user data from database
+router.get('/', authorize([PERMISSIONS.USERS.VIEW]), listUsers);
 
-  const users = [
-    { id: 1, name: 'John Doe1' },
-    { id: 2, name: 'Frank test' },
-  ]
-
-  res.json(users);
-});
-
-router.get('/:id', (req, res) => {
-  res.send(`user ${req.params.id}`);
-})
+router.get('/:id', authorize([PERMISSIONS.USERS.VIEW]), getUser)
 
 export default router;
