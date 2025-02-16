@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { createUser, listUsers, getUser } from '../controllers/users'
-import { authenticate } from '../middlewares/authentication';
 import { authorize } from '../middlewares/authorization';
 import PERMISSIONS from '../constants';
 

@@ -9,12 +9,15 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "initialPermissions": "ts-node src/scripts/createPermissions.ts",
-    "createAdminRole": "ts-node src/scripts/createAdminRole.ts"
+    "createAdminRole": "ts-node src/scripts/createAdminRole.ts",
+    "populateProducts": "ts-node src/scripts/populateProducts.ts",
+    "populateOrders": "ts-node src/scripts/populateOrders.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^9.5.0",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.1",
     "nodemon": "^3.1.9",

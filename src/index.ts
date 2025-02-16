@@ -2,6 +2,8 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import UsersRouter from './routes/users'
 import RolesRouter from './routes/roles'
+import ProductsRouter from './routes/products'
+import OrdersRouter from './routes/orders'
 import AuthRouter from './routes/auth'
 import { authenticate } from './middlewares/authentication'
 import { authorize } from './middlewares/authorization'
@@ -15,7 +17,8 @@ app.use(authenticate)
 app.use('/users', UsersRouter)
 app.use('/roles', RolesRouter)
 app.use('/auth', AuthRouter)
-
+app.use('/products', ProductsRouter)
+app.use('/orders', OrdersRouter)
 
 
 app.get('/', (req, res) => {

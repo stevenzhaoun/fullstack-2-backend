@@ -3,7 +3,6 @@ import prisma from "../prismaClient";
 import { hashSync } from 'bcryptjs'
 
 export const createUser = async (req: Request, res: Response) => {
-    console.log('req.body', req.body)
     const newUser = await prisma.user.create({
         data: {
             name: req.body.name,

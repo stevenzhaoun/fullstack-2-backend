@@ -25,6 +25,7 @@ export const authenticate = (req: Request, res: Response, next: NextFunction) =>
         (req as any).roleId = decodedData.roleId;
         next()
     } catch (error) {
+        console.log('authentication error', error)
         res.status(401).send('Unauthorized')
         return 
     }
