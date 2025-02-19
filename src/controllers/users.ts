@@ -22,6 +22,27 @@ export const createUser = async (req: Request, res: Response) => {
     res.status(201).json(newUser)
 }
 
+export const updateUser = async (req: Request, res: Response) => {
+    const userId = req.params.id;
+    try {
+        const updatedUser = await prisma.user.update({
+            where: { id: Number(userId) },
+            data: {
+                email: req.body.email,
+                name: req.body.name,
+                role: {
+                    connect: {
+                        id: req.body.roleId
+                    }
+                }
+            }
+        })
+        res.status(200).json(updatedUser)
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to update user' })
+    }
+}
+
 export const listUsers = async (req: Request, res: Response) => {
     const users = await prisma.user.findMany()
     res.json(users)
