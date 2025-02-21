@@ -9,7 +9,7 @@ import AuthRouter from './routes/auth'
 import { authenticate } from './middlewares/authentication'
 import cors from 'cors'
 
-const port = 8888;
+const port = process.env.PORT || 8888;
 
 const app = express();
 app.use(cors())
