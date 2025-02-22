@@ -25,7 +25,7 @@ app.use('/permissions', PermissionsRouter)
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!123');
+  res.send('Welcome to the service');
 });
 
 app.listen(port, () => {

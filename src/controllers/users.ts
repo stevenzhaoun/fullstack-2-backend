@@ -19,6 +19,7 @@ export const createUser = async (req: Request, res: Response) => {
             }
         }
     })
+    console.log('new user created', newUser)
     res.status(201).json(newUser)
 }
 
